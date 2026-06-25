@@ -118,7 +118,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 ### On-brand design tweak (one specific improvement)
 
 - [x] Add a hairline **show bill rule** under the hero headline — full-width `Line` (`#2B2520`) with tiny JetBrains Mono center label, e.g. `ADMIT ONE — INDEPENDENT PROMOTERS & BRAND PARTNERS`
-- [ ] Confirm stub remains the only major visual risk
+- [x] Confirm stub remains the only major visual risk
 
 ---
 
@@ -126,9 +126,9 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### 1. Personalize
 
-- [ ] Replace every `michael@showreadynetwork.com` with final contact email (if different)
-- [ ] Update About section copy if situation has changed
-- [ ] Keep tone: direct, low-hype, specific
+- [x] Replace every `michael@showreadynetwork.com` with final contact email (if different) — **confirmed:** `michael@showreadynetwork.com` is correct
+- [x] Update About section copy if situation has changed
+- [x] Keep tone: direct, low-hype, specific
 
 ### 2. Contact form (optional — replaces or supplements mailto)
 
@@ -152,15 +152,15 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### 5. Deploy
 
-- [ ] Confirm no broken relative paths
-- [ ] Deploy folder to **Netlify** (drag-and-drop) or add `netlify.toml` / `vercel.json` if needed
+- [x] Confirm no broken relative paths (logo → `/`; nav anchors; Google Fonts external only)
+- [x] Deploy folder to **Netlify** (drag-and-drop) or add `netlify.toml` / `vercel.json` if needed — **`vercel.json` added**
 - [ ] Verify live site: fonts, marquee, stub, mailto/form, mobile
 
 ### 6. Design review pass
 
-- [ ] Review `index.html` against this brief (show bill / ticket stub identity)
-- [ ] Apply at most **one** identity-forward tweak at a time — no generic redesign
-- [ ] Re-check guardrails after any change
+- [x] Review `index.html` against this brief (show bill / ticket stub identity)
+- [x] Apply at most **one** identity-forward tweak at a time — no generic redesign
+- [x] Re-check guardrails after any change
 
 ---
 
@@ -168,7 +168,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 | Item | Value |
 |------|-------|
-| **Current phase** | Trust & copy — ticket stub micro-copy next |
+| **Current phase** | Deploy verification — confirm live site on Vercel |
 | **Repo** | [github.com/Mick16-dev/showreadynetwork](https://github.com/Mick16-dev/showreadynetwork) |
 | **Local path** | `c:\Users\micha\.antigravity\showreadynetwork` |
 | **Stack** | Static HTML/CSS, no build tools |
@@ -176,10 +176,10 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 ### Progress checklist (high level)
 
 - [x] `index.html` in repository
-- [ ] Personalization complete
-- [ ] Trust / copy improvements applied
+- [x] Personalization complete
+- [x] Trust / copy improvements applied
 - [ ] Contact form (if chosen)
-- [ ] Deployed to production URL
+- [ ] Deployed to production URL (Vercel linked — verify after push)
 - [ ] Optional: roster page
 - [ ] Optional: scroll reveal
 
