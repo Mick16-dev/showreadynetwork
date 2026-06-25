@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Ready Network</title>
+  <meta name="description" content="A small, founder-led network connecting independent event promoters with brand partners. No platform. No agency overhead. Just introductions that fit the room.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --backstage-black: #0E0D0F;
+      --black-soft: #161417;
+      --paper: #F2EEE6;
+      --marquee-gold: #D8A246;
+      --stone: #A39C8E;
+      --line: #2B2520;
+      --font-display: "Anton", sans-serif;
+      --font-body: "Source Serif 4", Georgia, serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --max-width: 72rem;
+      --section-pad: clamp(3rem, 8vw, 6rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .marquee-track { animation: none !important; }
+    }
+
+    body {
+      margin: 0;
+      background: var(--backstage-black);
+      color: var(--paper);
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--marquee-gold);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: var(--paper); }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--marquee-gold);
+      outline-offset: 3px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+
+    /* ——— Marquee ——— */
+    .marquee {
+      border-bottom: 1px solid var(--line);
+      background: var(--black-soft);
+      overflow: hidden;
+      padding: 0.6rem 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee-track span {
+      flex-shrink: 0;
+      padding: 0 2rem;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.15em;
+      color: var(--marquee-gold);
+      text-transform: uppercase;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ——— Nav ——— */
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    .site-header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      letter-spacing: 0.08em;
+      color: var(--paper);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .logo:hover { color: var(--marquee-gold); }
+
+    .site-nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      color: var(--stone);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .site-nav a:hover { color: var(--paper); }
+
+    /* ——— Sections ——— */
+    section {
+      padding: var(--section-pad) clamp(1.25rem, 4vw, 2.5rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--marquee-gold);
+      margin: 0 0 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      margin: 0 0 1.5rem;
+      max-width: 18ch;
+    }
+
+    /* ——— Hero ——— */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr minmax(240px, 320px);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    .hero-headline {
+      font-size: clamp(2.75rem, 8vw, 5rem);
+      margin: 0 0 1.25rem;
+    }
+
+    .hero-lead {
+      color: var(--stone);
+      margin: 0 0 2rem;
+      max-width: 42ch;
+      font-size: 1.0625rem;
+    }
+
+    .registry {
+      background: var(--black-soft);
+      border: 1px solid var(--line);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .registry-title {
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--stone);
+    }
+
+    .registry-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .registry-row:last-child { border-bottom: none; }
+
+    .registry-label { color: var(--stone); }
+
+    .registry-value {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--paper);
+      text-align: right;
+    }
+
+    /* ——— Bill rows (how it works) ——— */
+    .bill-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bill-row {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.25rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .bill-row:last-child { border-bottom: 1px solid var(--line); }
+
+    .bill-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--marquee-gold);
+      line-height: 1;
+    }
+
+    .bill-row h3 {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+      color: var(--paper);
+    }
+
+    .bill-row p {
+      margin: 0;
+      color: var(--stone);
+    }
+
+    /* ——— Two column ——— */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+    }
+
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .col-panel {
+      padding-top: 0.5rem;
+    }
+
+    .col-panel h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 1rem;
+      color: var(--marquee-gold);
+    }
+
+    .col-panel ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--stone);
+    }
+
+    .col-panel li { margin-bottom: 0.5rem; }
+
+    /* ——— About ——— */
+    .about-copy {
+      max-width: 52ch;
+      color: var(--stone);
+    }
+
+    .about-copy p { margin: 0 0 1rem; }
+    .about-copy p:last-child { margin-bottom: 0; }
+
+    /* ——— Ticket stub ——— */
+    .stub-wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .stub {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      background: var(--black-soft);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 480px) {
+      .stub { grid-template-columns: 1.75rem 1fr; }
+    }
+
+    .stub-side {
+      border-right: 2px dashed var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0;
+      position: relative;
+    }
+
+    .stub-side::before,
+    .stub-side::after {
+      content: "";
+      position: absolute;
+      right: -0.55rem;
+      width: 1rem;
+      height: 1rem;
+      background: var(--backstage-black);
+      border-radius: 50%;
+      border: 1px solid var(--line);
+    }
+
+    .stub-side::before { top: -0.55rem; }
+    .stub-side::after { bottom: -0.55rem; }
+
+    .stub-side-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--stone);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .stub-body {
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+    }
+
+    .stub-admit {
+      color: var(--stone);
+      margin: 0 0 0.5rem;
+    }
+
+    .stub-title {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      margin: 0 0 0.75rem;
+    }
+
+    .stub-note {
+      color: var(--stone);
+      margin: 0 0 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .stub-cta {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--backstage-black);
+      background: var(--marquee-gold);
+      padding: 0.85rem 1.5rem;
+      border: 1px solid var(--marquee-gold);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .stub-cta:hover {
+      background: transparent;
+      color: var(--marquee-gold);
+    }
+
+    /* ——— Footer ——— */
+    .site-footer {
+      padding: 2rem clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    .site-footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--stone);
+      font-size: 0.875rem;
+    }
+
+    .site-footer a { color: var(--stone); }
+    .site-footer a:hover { color: var(--marquee-gold); }
+  </style>
+</head>
+<body>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Tonight — Promoters Wanted</span>
+      <span>Brand Partners — By Introduction Only</span>
+      <span>Small Network — Real Rooms</span>
+      <span>Tonight — Promoters Wanted</span>
+      <span>Brand Partners — By Introduction Only</span>
+      <span>Small Network — Real Rooms</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="#" class="logo">Show Ready Network</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#who">Who it's for</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="section-inner hero-grid">
+        <div>
+          <p class="mono eyebrow">Founding registry — open</p>
+          <h1 id="hero-heading" class="display hero-headline">Promoters and brands, introduced properly.</h1>
+          <p class="hero-lead">I'm building a small network for independent promoters who run real shows — and for brands that want to sponsor rooms, not buy a platform. No dashboard. No retainer army. You email me; I make the intro if it fits.</p>
+        </div>
+        <aside class="registry" aria-label="Registry status">
+          <p class="mono registry-title">Registry status</p>
+          <div class="registry-row">
+            <span class="mono registry-label">Founding spots</span>
+            <span class="registry-value">12 open</span>
+          </div>
+          <div class="registry-row">
+            <span class="mono registry-label">Entry cost</span>
+            <span class="registry-value">None</span>
+          </div>
+          <div class="registry-row">
+            <span class="mono registry-label">Control</span>
+            <span class="registry-value">Yours</span>
+          </div>
+          <div class="registry-row">
+            <span class="mono registry-label">Base</span>
+            <span class="registry-value">UK / EU</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="how" aria-labelledby="how-heading">
+      <div class="section-inner">
+        <p class="mono eyebrow">Sequence</p>
+        <h2 id="how-heading" class="display section-title">How it works</h2>
+        <ol class="bill-list">
+          <li class="bill-row">
+            <span class="bill-num" aria-hidden="true">01</span>
+            <div>
+              <h3>You tell me what you run</h3>
+              <p>Genre, city, room size, how often you promote. I need the actual picture — not a pitch deck.</p>
+            </div>
+          </li>
+          <li class="bill-row">
+            <span class="bill-num" aria-hidden="true">02</span>
+            <div>
+              <h3>I match when there's a fit</h3>
+              <p>When a brand is looking for a room like yours, I send a straight introduction. No mass blast, no list rental.</p>
+            </div>
+          </li>
+          <li class="bill-row">
+            <span class="bill-num" aria-hidden="true">03</span>
+            <div>
+              <h3>You deal direct</h3>
+              <p>Terms, money, creative — between you and the brand. I don't take a cut unless we agree that upfront.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="who" aria-labelledby="who-heading">
+      <div class="section-inner">
+        <p class="mono eyebrow">Two sides of the room</p>
+        <h2 id="who-heading" class="display section-title">Who it's for</h2>
+        <div class="two-col">
+          <div class="col-panel">
+            <h3>Promoters</h3>
+            <ul>
+              <li>You run nights yourself — club, live, festival fringe, warehouse</li>
+              <li>You've got a crowd that trusts your taste</li>
+              <li>You want sponsor money without signing over your list</li>
+              <li>You're skeptical of "partnership" emails — fair enough</li>
+            </ul>
+          </div>
+          <div class="col-panel">
+            <h3>Sponsors &amp; brands</h3>
+            <ul>
+              <li>You want access to real scenes, not influencer packages</li>
+              <li>You'd rather talk to the person who books the room</li>
+              <li>You need a quick read on who's legit before you spend</li>
+              <li>You're fine with a small, curated roster — not a marketplace</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="section-inner">
+        <p class="mono eyebrow">Who's behind this</p>
+        <h2 id="about-heading" class="display section-title">About</h2>
+        <div class="about-copy">
+          <p>Show Ready Network is me — Michael — not a company with a floor of account managers. I've worked around live events long enough to know which introductions are worth making and which are a waste of everyone's Saturday.</p>
+          <p>I'm keeping the founding roster small on purpose. Twelve promoters to start. If you're a brand reading this, that means you get names you can actually look up — not a directory of five hundred profiles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="section-inner">
+        <p class="mono eyebrow">General admission</p>
+        <h2 id="contact-heading" class="display section-title">Get in touch</h2>
+        <div class="stub-wrap">
+          <div class="stub">
+            <div class="stub-side" aria-hidden="true">
+              <span class="stub-side-text">Show Ready</span>
+            </div>
+            <div class="stub-body">
+              <p class="mono stub-admit">Admit one — No. 001</p>
+              <h3 class="display stub-title">Send a note</h3>
+              <p class="stub-note">Tell me whether you're promoting or sponsoring, and which city you're in. I'll read it myself.</p>
+              <a class="stub-cta" href="mailto:michael@showreadynetwork.com?subject=Show%20Ready%20Network%20%E2%80%94%20intro">michael@showreadynetwork.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span class="mono">Show Ready Network — founder-led</span>
+      <a href="mailto:michael@showreadynetwork.com">michael@showreadynetwork.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
