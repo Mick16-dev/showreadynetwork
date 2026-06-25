@@ -103,8 +103,8 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### How it works (3 steps)
 
-- [ ] Each step: verb + what happens + what you are **not** doing (e.g. “You keep your list — we don’t own your audience”)
-- [ ] Address promoter lock-in fear and sponsor vagueness in one line per step
+- [x] Each step: verb + what happens + what you are **not** doing (e.g. “You keep your list — we don’t own your audience”)
+- [x] Address promoter lock-in fear and sponsor vagueness in one line per step
 
 ### Who it's for — sponsor column
 
@@ -168,7 +168,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 | Item | Value |
 |------|-------|
-| **Current phase** | Trust & copy — how it works steps next |
+| **Current phase** | Trust & copy — sponsor legitimacy line next |
 | **Repo** | [github.com/Mick16-dev/showreadynetwork](https://github.com/Mick16-dev/showreadynetwork) |
 | **Local path** | `c:\Users\micha\.antigravity\showreadynetwork` |
 | **Stack** | Static HTML/CSS, no build tools |
