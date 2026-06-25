@@ -192,6 +192,25 @@
       font-size: 1.0625rem;
     }
 
+    .hero-rule {
+      position: relative;
+      height: 1px;
+      background: var(--line);
+      margin: 1.25rem 0 1.75rem;
+      max-width: 38rem;
+    }
+
+    .hero-rule span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--backstage-black);
+      padding: 0 0.75rem;
+      color: var(--stone);
+      white-space: nowrap;
+    }
+
     .registry {
       background: var(--black-soft);
       border: 1px solid var(--line);
@@ -466,6 +485,7 @@
         <div>
           <p class="mono eyebrow">Founding registry — open</p>
           <h1 id="hero-heading" class="display hero-headline">Promoters and brands, introduced properly.</h1>
+          <div class="hero-rule" aria-hidden="true"><span class="mono">Admit one — independent promoters &amp; brand partners</span></div>
           <p class="hero-lead">I'm building a small network for independent promoters who run real shows — and for brands that want to sponsor rooms, not buy a platform. No dashboard. No retainer army. You email me; I make the intro if it fits.</p>
         </div>
         <aside class="registry" aria-label="Registry status">

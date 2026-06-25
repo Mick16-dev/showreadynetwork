@@ -113,11 +113,11 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 ### Ticket stub / contact
 
 - [x] Add micro-copy above CTA: what happens after email (e.g. reply within 48 hours, short intro call, no deck)
-- [ ] Keep single primary action — email or form, not both competing
+- [x] Keep single primary action — email or form, not both competing
 
 ### On-brand design tweak (one specific improvement)
 
-- [ ] Add a hairline **show bill rule** under the hero headline — full-width `Line` (`#2B2520`) with tiny JetBrains Mono center label, e.g. `ADMIT ONE — INDEPENDENT PROMOTERS & BRAND PARTNERS`
+- [x] Add a hairline **show bill rule** under the hero headline — full-width `Line` (`#2B2520`) with tiny JetBrains Mono center label, e.g. `ADMIT ONE — INDEPENDENT PROMOTERS & BRAND PARTNERS`
 - [ ] Confirm stub remains the only major visual risk
 
 ---
