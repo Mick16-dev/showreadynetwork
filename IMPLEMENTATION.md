@@ -93,8 +93,8 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### Founder voice
 
-- [ ] Add 2–3 sentences in About or near contact: who Michael is, one line of scene credibility, why Show Ready Network exists
-- [ ] Replace vague adjectives with specifics (e.g. show types, cities, years in the scene)
+- [x] Add 2–3 sentences in About or near contact: who Michael is, one line of scene credibility, why Show Ready Network exists
+- [x] Replace vague adjectives with specifics (e.g. show types, cities, years in the scene)
 
 ### Registry status panel
 
@@ -168,7 +168,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 | Item | Value |
 |------|-------|
-| **Current phase** | Trust & copy — founder voice, registry panel, then contact polish |
+| **Current phase** | Trust & copy — registry panel explanations next |
 | **Repo** | [github.com/Mick16-dev/showreadynetwork](https://github.com/Mick16-dev/showreadynetwork) |
 | **Local path** | `c:\Users\micha\.antigravity\showreadynetwork` |
 | **Stack** | Static HTML/CSS, no build tools |
