@@ -112,7 +112,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### Ticket stub / contact
 
-- [ ] Add micro-copy above CTA: what happens after email (e.g. reply within 48 hours, short intro call, no deck)
+- [x] Add micro-copy above CTA: what happens after email (e.g. reply within 48 hours, short intro call, no deck)
 - [ ] Keep single primary action — email or form, not both competing
 
 ### On-brand design tweak (one specific improvement)
