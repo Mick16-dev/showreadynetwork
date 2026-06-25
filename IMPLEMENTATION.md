@@ -108,7 +108,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### Who it's for — sponsor column
 
-- [ ] Add one legitimacy line (e.g. “Introductions only — no commission until you agree terms” or “Curated roster, not a marketplace”)
+- [x] Add one legitimacy line (e.g. “Introductions only — no commission until you agree terms” or “Curated roster, not a marketplace”)
 
 ### Ticket stub / contact
 
@@ -168,7 +168,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 | Item | Value |
 |------|-------|
-| **Current phase** | Trust & copy — sponsor legitimacy line next |
+| **Current phase** | Trust & copy — ticket stub micro-copy next |
 | **Repo** | [github.com/Mick16-dev/showreadynetwork](https://github.com/Mick16-dev/showreadynetwork) |
 | **Local path** | `c:\Users\micha\.antigravity\showreadynetwork` |
 | **Stack** | Static HTML/CSS, no build tools |
