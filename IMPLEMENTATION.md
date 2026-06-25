@@ -154,7 +154,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 - [x] Confirm no broken relative paths (logo → `/`; nav anchors; Google Fonts external only)
 - [x] Deploy folder to **Netlify** (drag-and-drop) or add `netlify.toml` / `vercel.json` if needed — **`vercel.json` added**
-- [ ] Verify live site: fonts, marquee, stub, mailto/form, mobile
+- [x] Verify live site: fonts, marquee, stub, mailto/form, mobile — **https://showreadynetwork.vercel.app**
 
 ### 6. Design review pass
 
@@ -179,7 +179,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 - [x] Personalization complete
 - [x] Trust / copy improvements applied
 - [ ] Contact form (if chosen)
-- [ ] Deployed to production URL (Vercel linked — verify after push)
+- [x] Deployed to production URL — https://showreadynetwork.vercel.app
 - [ ] Optional: roster page
 - [ ] Optional: scroll reveal
 
