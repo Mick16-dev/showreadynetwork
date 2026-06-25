@@ -206,15 +206,18 @@
     }
 
     .registry-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      padding: 0.5rem 0;
+      padding: 0.75rem 0;
       border-bottom: 1px solid var(--line);
     }
 
     .registry-row:last-child { border-bottom: none; }
+
+    .registry-row-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
 
     .registry-label { color: var(--stone); }
 
@@ -223,6 +226,14 @@
       font-size: 0.8125rem;
       color: var(--paper);
       text-align: right;
+      flex-shrink: 0;
+    }
+
+    .registry-note {
+      margin: 0.4rem 0 0;
+      font-size: 0.8125rem;
+      color: var(--stone);
+      line-height: 1.5;
     }
 
     /* ——— Bill rows (how it works) ——— */
@@ -453,20 +464,32 @@
         <aside class="registry" aria-label="Registry status">
           <p class="mono registry-title">Registry status</p>
           <div class="registry-row">
-            <span class="mono registry-label">Founding spots</span>
-            <span class="registry-value">12 open</span>
+            <div class="registry-row-head">
+              <span class="mono registry-label">Founding spots</span>
+              <span class="registry-value">12 open</span>
+            </div>
+            <p class="registry-note">First dozen promoters on the roster — names I can vouch for when a brand asks who's legit.</p>
           </div>
           <div class="registry-row">
-            <span class="mono registry-label">Entry cost</span>
-            <span class="registry-value">None</span>
+            <div class="registry-row-head">
+              <span class="mono registry-label">Entry cost</span>
+              <span class="registry-value">None</span>
+            </div>
+            <p class="registry-note">No fee to get on the list. If we work together later, we agree terms before anything moves.</p>
           </div>
           <div class="registry-row">
-            <span class="mono registry-label">Control</span>
-            <span class="registry-value">Yours</span>
+            <div class="registry-row-head">
+              <span class="mono registry-label">Control</span>
+              <span class="registry-value">Yours</span>
+            </div>
+            <p class="registry-note">Your mailing list, your deal, your room. I don't own your audience or pass your contacts around.</p>
           </div>
           <div class="registry-row">
-            <span class="mono registry-label">Base</span>
-            <span class="registry-value">UK / EU</span>
+            <div class="registry-row-head">
+              <span class="mono registry-label">Base</span>
+              <span class="registry-value">UK / EU</span>
+            </div>
+            <p class="registry-note">Where I'm building first. Other cities only if the fit is real and I know the room.</p>
           </div>
         </aside>
       </div>

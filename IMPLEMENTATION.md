@@ -98,8 +98,8 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### Registry status panel
 
-- [ ] Tie each data point (founding spots, entry cost, control, base) to **one plain sentence** of explanation
-- [ ] Make the panel read like a real ledger, not a marketing funnel
+- [x] Tie each data point (founding spots, entry cost, control, base) to **one plain sentence** of explanation
+- [x] Make the panel read like a real ledger, not a marketing funnel
 
 ### How it works (3 steps)
 
@@ -168,7 +168,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 | Item | Value |
 |------|-------|
-| **Current phase** | Trust & copy — registry panel explanations next |
+| **Current phase** | Trust & copy — how it works steps next |
 | **Repo** | [github.com/Mick16-dev/showreadynetwork](https://github.com/Mick16-dev/showreadynetwork) |
 | **Local path** | `c:\Users\micha\.antigravity\showreadynetwork` |
 | **Stack** | Static HTML/CSS, no build tools |
