@@ -629,7 +629,7 @@
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div id="google_translate_element" class="translate-wrap" aria-label="Translate this page"></div>
+        <div id="google_translate_element" class="translate-wrap"></div>
       </div>
     </div>
   </header>
@@ -858,11 +858,20 @@
   </script>
 
   <script>
+    function normalizeTranslateWidget() {
+      var combo = document.querySelector('.translate-wrap .goog-te-combo');
+      if (!combo || !combo.options.length) return;
+      combo.options[0].text = 'Language';
+      combo.setAttribute('aria-label', 'Language');
+    }
+
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         autoDisplay: false
       }, 'google_translate_element');
+      normalizeTranslateWidget();
+      setTimeout(normalizeTranslateWidget, 300);
     }
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
