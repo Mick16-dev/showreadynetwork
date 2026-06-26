@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show Ready Network</title>
-  <meta name="description" content="A small, founder-led network connecting independent event promoters with brand partners. No platform. No agency overhead. Just introductions that fit the room.">
+  <title>Show Ready Network | Promoters &amp; Brand Partners</title>
+  <meta name="description" content="A founder-led network connecting independent event promoters with brand partners. Small roster, personal introductions, no platform overhead. Based in Bremen, EU.">
+  <meta name="author" content="Michael, Show Ready Network">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://showreadynetwork.vercel.app/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#0E0D0F">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://showreadynetwork.vercel.app/">
+  <meta property="og:title" content="Show Ready Network">
+  <meta property="og:description" content="A founder-led network connecting independent promoters with brand partners. Personal introductions, small curated roster.">
+  <meta property="og:site_name" content="Show Ready Network">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Show Ready Network">
+  <meta name="twitter:description" content="A founder-led network connecting independent promoters with brand partners.">
+  <link rel="alternate" hreflang="en" href="https://showreadynetwork.vercel.app/">
+  <link rel="alternate" hreflang="x-default" href="https://showreadynetwork.vercel.app/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -161,6 +178,53 @@
     }
 
     .site-nav a:hover { color: var(--paper); }
+
+    .site-header-right {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .translate-wrap {
+      line-height: 1;
+    }
+
+    .translate-wrap .goog-te-gadget {
+      font-family: var(--font-mono) !important;
+      font-size: 0 !important;
+      color: var(--stone) !important;
+    }
+
+    .translate-wrap .goog-te-gadget .goog-te-combo {
+      margin: 0 !important;
+      padding: 0.35rem 0.5rem !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.6875rem !important;
+      letter-spacing: 0.06em;
+      color: var(--paper) !important;
+      background: var(--black-soft) !important;
+      border: 1px solid var(--line) !important;
+      border-radius: 0 !important;
+      cursor: pointer;
+    }
+
+    .translate-wrap .goog-te-gadget span {
+      display: none !important;
+    }
+
+    body { top: 0 !important; }
+
+    .goog-te-banner-frame,
+    .skiptranslate iframe,
+    #goog-gt-tt {
+      display: none !important;
+    }
+
+    body.translated-ltr,
+    body.translated-rtl {
+      top: 0 !important;
+    }
 
     /* ——— Sections ——— */
     section {
@@ -558,12 +622,15 @@
   <header class="site-header">
     <div class="site-header-inner">
       <a href="/" class="logo">Show Ready Network</a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="#how">How it works</a>
-        <a href="#who">Who it's for</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="site-header-right">
+        <nav class="site-nav" aria-label="Main">
+          <a href="#how">How it works</a>
+          <a href="#who">Who it's for</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div id="google_translate_element" class="translate-wrap" aria-label="Translate this page"></div>
+      </div>
     </div>
   </header>
 
@@ -789,6 +856,16 @@
       });
     })();
   </script>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
 </body>
 </html>

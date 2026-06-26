@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Show Ready Network">
+  <rect width="32" height="32" fill="#0E0D0F"/>
+  <rect x="5" y="7" width="22" height="18" fill="#161417" stroke="#D8A246" stroke-width="1"/>
+  <line x1="10" y1="7" x2="10" y2="25" stroke="#2B2520" stroke-width="1" stroke-dasharray="2 2"/>
+  <text x="19" y="20" fill="#D8A246" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle">SR</text>
+</svg>
