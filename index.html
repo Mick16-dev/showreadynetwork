@@ -34,6 +34,19 @@
       .marquee-track { animation: none !important; }
     }
 
+    @media (prefers-reduced-motion: no-preference) {
+      main > section:not(.hero) {
+        opacity: 0;
+        transform: translateY(1.25rem);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+
+      main > section:not(.hero).is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     body {
       margin: 0;
       background: var(--backstage-black);
@@ -53,7 +66,10 @@
     a:hover { color: var(--paper); }
 
     a:focus-visible,
-    button:focus-visible {
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
       outline: 2px solid var(--marquee-gold);
       outline-offset: 3px;
     }
@@ -414,6 +430,55 @@
       font-size: 0.95rem;
     }
 
+    .stub-form {
+      margin: 0;
+    }
+
+    .stub-field {
+      margin: 0 0 1rem;
+    }
+
+    .stub-field label {
+      display: block;
+      margin: 0 0 0.35rem;
+      color: var(--stone);
+    }
+
+    .stub-field input,
+    .stub-field select,
+    .stub-field textarea {
+      width: 100%;
+      margin: 0;
+      padding: 0.65rem 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--paper);
+      background: var(--backstage-black);
+      border: 1px solid var(--line);
+      border-radius: 0;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .stub-field select {
+      background-image: linear-gradient(45deg, transparent 50%, var(--stone) 50%), linear-gradient(135deg, var(--stone) 50%, transparent 50%);
+      background-position: calc(100% - 1rem) calc(50% - 2px), calc(100% - 0.65rem) calc(50% - 2px);
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 2rem;
+    }
+
+    .stub-field textarea {
+      min-height: 6rem;
+      resize: vertical;
+    }
+
+    .stub-field input::placeholder,
+    .stub-field textarea::placeholder {
+      color: var(--stone);
+      opacity: 0.85;
+    }
+
     .stub-cta {
       display: inline-block;
       font-family: var(--font-mono);
@@ -426,11 +491,34 @@
       padding: 0.85rem 1.5rem;
       border: 1px solid var(--marquee-gold);
       transition: background 0.15s, color 0.15s;
+      cursor: pointer;
     }
 
-    .stub-cta:hover {
+    .stub-cta:hover:not(:disabled) {
       background: transparent;
       color: var(--marquee-gold);
+    }
+
+    .stub-cta:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .stub-form-status {
+      margin: 0 0 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+
+    .stub-form-status--success { color: var(--paper); }
+    .stub-form-status--error { color: var(--marquee-gold); }
+
+    .stub-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
 
     /* ——— Footer ——— */
@@ -606,7 +694,35 @@
               <h3 class="display stub-title">Send a note</h3>
               <p class="stub-note">Tell me whether you're promoting or sponsoring, and which city you're in. I'll read it myself.</p>
               <p class="stub-note">If it’s a fit, I’ll reply within 48 hours with a short next step (usually a quick intro call).</p>
-              <a class="stub-cta" href="mailto:michael@showreadynetwork.com?subject=Show%20Ready%20Network%20%E2%80%94%20intro">michael@showreadynetwork.com</a>
+              <form class="stub-form" action="https://formspree.io/f/mjgqwblv" method="POST">
+                <input type="hidden" name="_subject" value="Show Ready Network — intro">
+                <p class="stub-form-status" role="status" aria-live="polite" hidden></p>
+                <div class="stub-honeypot" aria-hidden="true">
+                  <label for="stub-website">Website</label>
+                  <input type="text" id="stub-website" name="_gotcha" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="stub-field">
+                  <label class="mono" for="stub-name">Name</label>
+                  <input type="text" id="stub-name" name="name" required autocomplete="name">
+                </div>
+                <div class="stub-field">
+                  <label class="mono" for="stub-email">Email</label>
+                  <input type="email" id="stub-email" name="email" required autocomplete="email">
+                </div>
+                <div class="stub-field">
+                  <label class="mono" for="stub-role">Role</label>
+                  <select id="stub-role" name="role" required>
+                    <option value="" disabled selected>Select one</option>
+                    <option value="Promoter">Promoter</option>
+                    <option value="Sponsor">Sponsor / Brand</option>
+                  </select>
+                </div>
+                <div class="stub-field">
+                  <label class="mono" for="stub-message">Message</label>
+                  <textarea id="stub-message" name="message" required placeholder="City, genre or scene, room size — whatever helps me see if it's a fit."></textarea>
+                </div>
+                <button type="submit" class="stub-cta">Send note</button>
+              </form>
             </div>
           </div>
         </div>
@@ -617,9 +733,69 @@
   <footer class="site-footer">
     <div class="site-footer-inner">
       <span class="mono">Show Ready Network — founder-led</span>
-      <a href="mailto:michael@showreadynetwork.com">michael@showreadynetwork.com</a>
+      <a href="mailto:michaeltesfaye613@gmail.com">michaeltesfaye613@gmail.com</a>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        var sections = document.querySelectorAll('main > section:not(.hero)');
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+        sections.forEach(function (section) { observer.observe(section); });
+      } else {
+        document.querySelectorAll('main > section:not(.hero)').forEach(function (section) {
+          section.classList.add('is-visible');
+        });
+      }
+
+      var form = document.querySelector('.stub-form');
+      if (!form) return;
+
+      var endpoint = form.getAttribute('action');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var btn = form.querySelector('[type="submit"]');
+        var status = form.querySelector('.stub-form-status');
+        var fields = form.querySelectorAll('.stub-field, .stub-honeypot, .stub-cta');
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        status.hidden = true;
+        status.className = 'stub-form-status';
+        status.textContent = '';
+
+        fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('submit failed');
+            fields.forEach(function (el) { el.hidden = true; });
+            status.hidden = false;
+            status.className = 'stub-form-status stub-form-status--success';
+            status.textContent = 'Received — I\'ll read this myself and reply within 48 hours.';
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = 'Send note';
+            status.hidden = false;
+            status.className = 'stub-form-status stub-form-status--error';
+            status.textContent = 'Something went wrong. Email michaeltesfaye613@gmail.com directly.';
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>

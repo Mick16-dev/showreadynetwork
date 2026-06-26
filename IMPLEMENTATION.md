@@ -15,7 +15,7 @@ A one-page landing site for **Show Ready Network** — a brokerage connecting in
 | **Independent promoters** | Skeptical, scene-based; value trust over polish |
 | **Brand / sponsorship contacts** | Quick proof of legitimacy and a clear next action |
 
-**Primary action:** get a visitor to email **michael@showreadynetwork.com**.
+**Primary action:** get a visitor to submit the contact form (or email **michaeltesfaye613@gmail.com** as fallback).
 
 ---
 
@@ -126,16 +126,17 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### 1. Personalize
 
-- [x] Replace every `michael@showreadynetwork.com` with final contact email (if different) — **confirmed:** `michael@showreadynetwork.com` is correct
+- [x] Replace every `michael@showreadynetwork.com` with final contact email — **current:** `michaeltesfaye613@gmail.com`
 - [x] Update About section copy if situation has changed
 - [x] Keep tone: direct, low-hype, specific
 
 ### 2. Contact form (optional — replaces or supplements mailto)
 
-- [ ] Replace mailto in `.stub-cta` with simple form: name, email, message, role dropdown (Promoter / Sponsor)
-- [ ] Use **Formspree** or **Netlify Forms** (static site, no backend)
-- [ ] Match existing style: gold CTA, dark theme, JetBrains Mono labels
-- [ ] No new colors outside `:root` tokens
+- [x] Replace mailto in `.stub-cta` with simple form: name, email, message, role dropdown (Promoter / Sponsor)
+- [x] Use **Formspree** or **Netlify Forms** (static site, no backend) — **Formspree** chosen (Vercel deploy)
+- [x] Match existing style: gold CTA, dark theme, JetBrains Mono labels
+- [x] No new colors outside `:root` tokens
+- [x] **Configure Formspree:** form endpoint `https://formspree.io/f/mjgqwblv`
 
 ### 3. Roster page (when promoters are signed)
 
@@ -146,9 +147,9 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 ### 4. Scroll-based motion (optional)
 
-- [ ] Single restrained scroll-reveal: top-level sections fade/slide up once on first viewport entry (`IntersectionObserver`)
-- [ ] Honor `prefers-reduced-motion` — no animation when set
-- [ ] Do **not** animate every element — sections only, once each
+- [x] Single restrained scroll-reveal: top-level sections fade/slide up once on first viewport entry (`IntersectionObserver`)
+- [x] Honor `prefers-reduced-motion` — no animation when set
+- [x] Do **not** animate every element — sections only, once each
 
 ### 5. Deploy
 
@@ -168,7 +169,7 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 
 | Item | Value |
 |------|-------|
-| **Current phase** | Deploy verification — confirm live site on Vercel |
+| **Current phase** | Roster page (optional) — contact form live |
 | **Repo** | [github.com/Mick16-dev/showreadynetwork](https://github.com/Mick16-dev/showreadynetwork) |
 | **Local path** | `c:\Users\micha\.antigravity\showreadynetwork` |
 | **Stack** | Static HTML/CSS, no build tools |
@@ -178,10 +179,10 @@ Recommended refinements that fit the show-bill identity. Check off as implemente
 - [x] `index.html` in repository
 - [x] Personalization complete
 - [x] Trust / copy improvements applied
-- [ ] Contact form (if chosen)
+- [x] Contact form live (Formspree)
 - [x] Deployed to production URL — https://showreadynetwork.vercel.app
 - [ ] Optional: roster page
-- [ ] Optional: scroll reveal
+- [x] Optional: scroll reveal
 
 ---
 
